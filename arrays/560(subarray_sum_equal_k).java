@@ -12,14 +12,14 @@ class arrays {
         for (int i = 0; i < n; i++) {
             sum += nums[i];
             if (mpp.containsKey(sum - k)) {
-                cnt++;
+                cnt += mpp.get(sum - k);
             }
             mpp.put(sum, mpp.getOrDefault(sum, 0) + 1);
         }
         return cnt;
     }
 
-    public  void main(String[] args) {
+    public void main(String[] args) {
         int[] arr = {1, 1, 1};
         int k = 2;
         int ans = subarraySum(arr, k);
