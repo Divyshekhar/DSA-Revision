@@ -38,7 +38,17 @@ class arrays {
     public static int subarrayDivByKOptimal(int[] nums, int k) {
         int ans = 0;
         int[] remainders = new int[k];
-        remainders[0] = 1;
+        remainders[0] = 1; // this is made so that [0] can be added
+        // nums[5, 2] and k = 5
+        /*
+            when no remainder[0] = 1;
+            curSum = 5;
+            then rem = 5 % 5 == 0
+            ans += remainder[rem]
+            so here the remainder[0] = 0
+            then that would be false
+            hence put remainder[0] = 1;
+        */
         int curSum = 0;
 
         for (int it : nums) {
