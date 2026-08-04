@@ -1,27 +1,25 @@
+
 class arrays {
 
-    void merge(int[] arr, int left, int mid, int right) {
-        int[] temp = new int[right - left + 1];
-        int i = left, j = mid + 1, k = 0;
-        while (i < mid && j < right) {
-            temp[k++] = (arr[i] < arr[j]) ? arr[i++] : arr[j++];
+    private void merge(int[] arr, int low, int mid, int high) {
+        int[] temp = new int[high - low + 1];
+        int i = low, j = mid + 1, k = 0;
+        while (i < mid && j < high) {
+            temp[k++] = (arr[i] < arr[j]) ? arr[i] : arr[j];
         }
         while (i < mid) {
             temp[k++] = arr[i++];
         }
-        while (j < right) {
+        while (j < high) {
             temp[k++] = arr[j++];
         }
-        System.arraycopy(temp, 0, arr, left, temp.length);
     }
 
-    void mergeSort(int[] arr, int left, int right) {
-        if (left < right) {
-            int mid = left + (right - left) / 2;
-            mergeSort(arr, left, mid);
-            mergeSort(arr, mid + 1, right);
-            merge(arr, left, mid, right);
-        }
+    public void mergeSort(int[] arr, int low, int high){
+        int mid = low + (high - low) /2;
+        mergeSort(arr, low, mid);
+        mergeSort(arr, mid+1, high);
+        merge(arr, low, mid, high);
     }
 
     public static void main(String[] args) {
