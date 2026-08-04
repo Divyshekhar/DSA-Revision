@@ -1,5 +1,5 @@
 
-class arrays {
+class QuickSort {
 
     private void swap(int[] arr, int i, int j) {
         int temp = arr[i];
