@@ -20,13 +20,13 @@ class KokoBanana {
         return totalHours;
     }
 
-    public int minEatingSpeed(int[] piles, int hourly){
+    public int minEatingSpeed(int[] piles, int hours){
         int high = maxValue(piles);
         int low = 0;
         while(low <= high){
             int mid = low + high / 2;
             long totalHours = calculateHours(piles, mid);
-            if(totalHours <= hourly){
+            if(totalHours <= hours){
                 high = mid - 1;
             }else{
                 low = mid + 1;
